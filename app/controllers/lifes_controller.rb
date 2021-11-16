@@ -1,5 +1,6 @@
 class LifesController < ApplicationController
   def index
+    @lifes = Life.all
   end
 
   def show
