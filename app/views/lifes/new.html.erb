@@ -1,2 +1,34 @@
-<h1>Lifes#new</h1>
-<p>Find me in app/views/lifes/new.html.erb</p>
+<div>
+    <div class="col-md-4 offset-md-4">
+        <h2 class="text-center">New life</h2>
+        <%= form_with model: @life, :url => {:action => :new }, local: true do |f| %>
+            <div class="form-group">
+                <label>Name</label>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <%= f.number_field :year, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Month</label>
+                <%= f.number_field :month, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <%= f.number_field :date, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Introduce</label>
+                <%= f.text_field :introduce, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <%= f.text_field :image, class: "form-control" %>
+            </div>
+            <div class="text-center">
+                <%= f.submit "Save", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

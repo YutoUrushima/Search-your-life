@@ -7,6 +7,7 @@ class LifesController < ApplicationController
   end
 
   def new
+    @life = Life.new
   end
 
   def edit
