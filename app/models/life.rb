@@ -1,0 +1,2 @@
+class Life < ApplicationRecord
+end
