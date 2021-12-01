@@ -4,6 +4,7 @@ class LifesController < ApplicationController
   end
 
   def show
+    @life = Life.find(params[:id])
   end
 
   def new

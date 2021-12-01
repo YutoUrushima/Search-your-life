@@ -1,2 +1,26 @@
-<h1>Lifes#show</h1>
-<p>Find me in app/views/lifes/show.html.erb</p>
+<div class="row">
+    <div class="d-flex w-100 align-items-center">
+        <div class="flex-fill">
+            <%= @life.image %>
+        </div>
+        <div class="flex-fill">
+            <h2>
+                <%= @life.name %>
+            </h2>
+            <div class="d-flex">
+                <p>
+                    <%= @life.year %>年
+                </p>
+                 <p>
+                    <%= @life.month %>月
+                </p>
+                 <p>
+                    <%= @life.date %>日
+                </p>
+            </div>
+            <p>
+                <%= @life.introduce %>
+            </p>
+        </div>
+    </div>
+</div>
