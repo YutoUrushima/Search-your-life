@@ -1,4 +1,13 @@
 class LifesController < ApplicationController
+  
+  def login_form
+  end
+  
+  def check
+    @email = params[:mail]
+    @password = params[:password]
+  end
+  
   def index
     @lifes = Life.all
   end
