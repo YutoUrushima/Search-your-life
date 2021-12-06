@@ -8,7 +8,7 @@ root "lifes#index"
 resources :lifes
 
 get "/login" => "lifes#login_form"
-post "/login/autentication" => "lifes#check"
+post "/login" => "lifes#login"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

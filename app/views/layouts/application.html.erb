@@ -9,8 +9,20 @@
   </head>
 
   <body>
-    <div class="bg-primary">
+    
+    <!--flash部分-->
+    <% flash.each do |message_type, message| %>
+      <p class="text-primary">
+        <%= message %>
+      </p>
+    <% end %>
+    <!--flash部分-->
+    
+    <div class="bg-primary d-flex justify-content-between align-items-center">
       <h2 class="text-white p-2">Search your life</h2>
+      <div class="pr-5">
+        <%= link_to "login", login_path, class: "text-white" %>
+      </div>
     </div>
     <div class="container">
       <%= yield %>
