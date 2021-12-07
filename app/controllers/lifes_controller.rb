@@ -37,7 +37,8 @@ class LifesController < ApplicationController
   
   def create
     @life = Life.new(life_params)
-    if @life.save!
+    if @life.save
+      session[:current_user] = @life.id
       flash[:notice] = "created!"
       redirect_to root_path
     else
@@ -51,7 +52,7 @@ class LifesController < ApplicationController
   
   private
     def life_params
-      params.require(:life).permit(:name, :year, :month, :date, :introduce, :image)
+      params.require(:life).permit(:mail, :password)
     end
   
 end

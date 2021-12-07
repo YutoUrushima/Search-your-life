@@ -1,17 +1,19 @@
 <div class="row">
     <div class="col-md-14">
         <% @lifes.each do |life| %>
-            <%= link_to life_path(life), class: "card" do %>
-                <div class="card-body">
-                    <p>名前：<%= life.name %></p>
-                    <p>誕生年：<%= life.year %></p>
-                    <p>誕生月：<%= life.month %></p>
-                    <p>誕生日：<%= life.date %></p>
-                    <p>自己紹介：<%= life.introduce %></p>
-                    <p>画像：<%= life.image %></p>
-                    
-                    <p>メール：<%= life.mail %></p>
-                </div>
+            <% if life.name %>
+                <%= link_to life_path(life), class: "card" do %>
+                    <div class="card-body">
+                        <p>名前：<%= life.name %></p>
+                        <p>誕生年：<%= life.year %></p>
+                        <p>誕生月：<%= life.month %></p>
+                        <p>誕生日：<%= life.date %></p>
+                        <p>自己紹介：<%= life.introduce %></p>
+                        <p>画像：<%= life.image %></p>
+                        
+                        <p>メール：<%= life.mail %></p>
+                    </div>
+                <% end %>
             <% end %>
         <% end %>
     </div>
