@@ -34,8 +34,24 @@ class LifesController < ApplicationController
   def new
     @life = Life.new
   end
+  
+  def create
+    @life = Life.new(life_params)
+    if @life.save!
+      flash[:notice] = "created!"
+      redirect_to root_path
+    else
+      flash[:alert] = "creation error!"
+      render :new
+    end
+  end
 
   def edit
   end
+  
+  private
+    def life_params
+      params.require(:life).permit(:name, :year, :month, :date, :introduce, :image)
+    end
   
 end
