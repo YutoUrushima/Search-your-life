@@ -1,30 +1,91 @@
-<div class="row">
-    <div class="d-flex w-100 align-items-center">
-        <div class="flex-fill">
-            <%= @life.image %>
-        </div>
-        <div class="flex-fill">
-            <h2>
-                <%= @life.name %>
-            </h2>
-            <div class="d-flex">
+<div>
+    <div class="my-3 font-weight-bold"><%= "id: #{@life.id}の個別ページ" %></div>
+    <!--現在ログインしているユーザーと訪問している詳細ページのidを比較して、同一ユーザーだった場合 && 人生登録してない場合は人生登録のフォームを表示-->
+    <% if @life.id == @current_user && @life.name == nil %>
+        <%= form_with model: @life, :url => {:action => :update }, local: true do |f| %>
+            <div class="form-group">
+                <label>Name</label>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <%= f.number_field :year, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Month</label>
+                <%= f.number_field :month, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <%= f.number_field :date, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Introduce</label>
+                <%= f.text_area :introduce, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <%= f.text_field :image, class: "form-control" %>
+            </div>
+            <div class="text-center">
+                <%= f.submit "Save", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    <!--その他で編集画面を出す必要がない時は普通に表示させる-->
+    <% elsif @life.id == @current_user && @life.name != nil %>
+        <div class="d-flex w-100 align-items-center">
+            <div class="flex-fill">
+                <%= @life.image %>
+            </div>
+            <div class="flex-fill">
+                <h2>
+                    <%= @life.name %>
+                </h2>
+                <div class="d-flex">
+                    <p>
+                        <%= @life.year %>年
+                    </p>
+                     <p>
+                        <%= @life.month %>月
+                    </p>
+                     <p>
+                        <%= @life.date %>日
+                    </p>
+                </div>
                 <p>
-                    <%= @life.year %>年
-                </p>
-                 <p>
-                    <%= @life.month %>月
-                </p>
-                 <p>
-                    <%= @life.date %>日
+                    <%= @life.introduce %>
                 </p>
             </div>
-            <p>
-                <%= @life.introduce %>
-            </p>
         </div>
         <!--現在ログインしているユーザーと訪問している詳細ページのidを比較-->
         <% if @life.id == @current_user %>
             <%= link_to "edit", edit_life_path, class: "btn btn-primary" %>
         <% end %>
-    </div>
+    <!--その他で編集画面を出す必要がない時は普通に表示させる-->
+    <% else %>
+        <div class="d-flex w-100 align-items-center">
+            <div class="flex-fill">
+                <%= @life.image %>
+            </div>
+            <div class="flex-fill">
+                <h2>
+                    <%= @life.name %>
+                </h2>
+                <div class="d-flex">
+                    <p>
+                        <%= @life.year %>年
+                    </p>
+                     <p>
+                        <%= @life.month %>月
+                    </p>
+                     <p>
+                        <%= @life.date %>日
+                    </p>
+                </div>
+                <p>
+                    <%= @life.introduce %>
+                </p>
+            </div>
+        </div>
+    <% end %>
 </div>

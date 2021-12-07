@@ -36,7 +36,7 @@ class LifesController < ApplicationController
   end
   
   def create
-    @life = Life.new(life_params)
+    @life = Life.new(user_params)
     if @life.save
       session[:current_user] = @life.id
       flash[:notice] = "created!"
@@ -50,9 +50,24 @@ class LifesController < ApplicationController
   def edit
   end
   
+  def update
+    @life = Life.find(params[:id])
+    if @life.update(life_params)
+      redirect_to life_path
+      flash[:notice] = "update!"
+    else
+      render :show
+      flash[:alert] = "update error!"
+    end
+  end
+  
   private
-    def life_params
+    def user_params
       params.require(:life).permit(:mail, :password)
+    end
+    
+    def life_params
+      params.require(:life).permit(:name, :year, :month, :date, :introduce, :image)
     end
   
 end
