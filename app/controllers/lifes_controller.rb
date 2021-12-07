@@ -8,17 +8,19 @@ class LifesController < ApplicationController
     @password = params[:password]
     @user = Life.find_by(mail: params[:mail])
     if @user &&  @user.password == @password
+      session[:current_user] = @user.id
       flash[:notice] = "Success!"
-      redirect_to "/"
+      redirect_to root_path
     else
       flash[:alert] = "Error!"
-      render "login_form"
+      render :login_form
     end
   end
   
-  def check
-    @email = params[:mail]
-    @password = params[:password]
+  def logout
+    session[:current_user] = nil
+    flash[:notice] = "logout!"
+    redirect_to root_path
   end
   
   def index
@@ -35,4 +37,5 @@ class LifesController < ApplicationController
 
   def edit
   end
+  
 end
