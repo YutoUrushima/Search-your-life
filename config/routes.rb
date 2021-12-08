@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contents/edit'
 #   get 'lifes/index'
 #   get 'lifes/show'
 #   get 'lifes/new'
@@ -9,7 +10,9 @@ post "/login" => "lifes#login"
 post "/logout" => "lifes#logout"
 
 root "lifes#index"
-resources :lifes
+resources :lifes do
+  resources :contents
+end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

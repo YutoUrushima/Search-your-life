@@ -61,6 +61,65 @@
         <% if @life.id == @current_user %>
             <%= link_to "edit", edit_life_path, class: "btn btn-primary" %>
         <% end %>
+        <!--イベント部分-->
+        <div>
+            <h3>Events</h3>
+            <table class="table table-striped">
+                <% if @life.contents.any? %>
+                    <thead class="thead-light">
+                        <tr>
+                            <td>Year</td>
+                            <td>Month</td>
+                            <td>Date</td>
+                            <td>Event</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @life.contents.each do |content| %>
+                        <tr>
+                            <td>
+                                <%= content.year %>
+                            </td>
+                            <td>
+                                <%= content.month %>
+                            </td>
+                            <td>
+                                <%= content.date %>
+                            </td>
+                            <td>
+                                <%= content.event %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                <% else %>
+                    <p>No Events</p>
+                <% end %>
+            </table>
+        </div>
+        <!--イベント部分 ここまで-->
+        <%= form_with model: [@life, @content], local: true do |f| %>
+            <%= f.hidden_field :life_id, { value: @life.id } %>
+            <div class="form-group">
+                <label>Year</label>
+                <%= f.number_field :year, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Month</label>
+                <%= f.number_field :month, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <%= f.number_field :date, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <label>Event</label>
+                <%= f.text_area :event, class: "form-control" %>
+            </div>
+            <div class="text-center">
+                <%= f.submit "Post!", class: "btn btn-primary" %>
+            </div>
+        <% end %>
     <!--その他で編集画面を出す必要がない時は普通に表示させる-->
     <% else %>
         <div class="d-flex w-100 align-items-center">
@@ -85,6 +144,42 @@
                 <p>
                     <%= @life.introduce %>
                 </p>
+            </div>
+            <!--イベント部分-->
+            <div>
+                <h3>Events</h3>
+                <table class="table table-striped">
+                    <% if @life.contents.any? %>
+                        <thead class="thead-light">
+                            <tr>
+                                <td>Year</td>
+                                <td>Month</td>
+                                <td>Date</td>
+                                <td>Event</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @life.contents.each do |content| %>
+                            <tr>
+                                <td>
+                                    <%= content.year %>
+                                </td>
+                                <td>
+                                    <%= content.month %>
+                                </td>
+                                <td>
+                                    <%= content.date %>
+                                </td>
+                                <td>
+                                    <%= content.event %>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    <% else %>
+                        <p>No Events</p>
+                    <% end %>
+                </table>
             </div>
         </div>
     <% end %>

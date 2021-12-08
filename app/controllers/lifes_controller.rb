@@ -29,6 +29,7 @@ class LifesController < ApplicationController
 
   def show
     @life = Life.find(params[:id])
+    @content = Content.new
   end
 
   def new
