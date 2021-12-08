@@ -48,6 +48,7 @@ class LifesController < ApplicationController
   end
 
   def edit
+    @life = Life.find(params[:id])
   end
   
   def update
