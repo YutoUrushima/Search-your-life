@@ -72,6 +72,8 @@
                             <td>Month</td>
                             <td>Date</td>
                             <td>Event</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,6 +90,12 @@
                             </td>
                             <td>
                                 <%= content.event %>
+                            </td>
+                            <td>
+                                <%= link_to "Edit", edit_life_content_path(@life, content), class: "btn btn-primary" %>
+                            </td>
+                            <td>
+                                <%= link_to "Delete", life_content_path(@life, content), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
                             </td>
                         </tr>
                         <% end %>
