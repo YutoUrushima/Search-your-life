@@ -9,9 +9,8 @@
                         <p>誕生月：<%= life.month %></p>
                         <p>誕生日：<%= life.date %></p>
                         <p>自己紹介：<%= life.introduce %></p>
-                        <p>画像：<%= life.image %></p>
-                        
                         <p>メール：<%= life.mail %></p>
+                        <img src="<%= life.image != nil ? "/user_images/#{life.id}.jpg" : "/user_images/default.jpg" %>">
                     </div>
                 <% end %>
             <% end %>

@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label>Image</label>
-                <%= f.text_field :image, class: "form-control" %>
+                <%= f.file_field :image, class: "form-control" %>
             </div>
             <div class="text-center">
                 <%= f.submit "Save", class: "btn btn-primary" %>
@@ -35,7 +35,7 @@
     <% elsif @life.id == @current_user && @life.name != nil %>
         <div class="d-flex w-100 align-items-center">
             <div class="flex-fill">
-                <%= @life.image %>
+                <img src="/user_images/<%= @life.id %>.jpg">
             </div>
             <div class="flex-fill">
                 <h2>
@@ -132,7 +132,7 @@
     <% else %>
         <div class="d-flex w-100 align-items-center">
             <div class="flex-fill">
-                <%= @life.image %>
+                <img src="/user_images/<%= @life.id %>.jpg">
             </div>
             <div class="flex-fill">
                 <h2>

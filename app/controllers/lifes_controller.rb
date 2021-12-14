@@ -54,6 +54,11 @@ class LifesController < ApplicationController
   
   def update
     @life = Life.find(params[:id])
+    if params[:life][:image]
+      @life.image = "#{@life.id}.jpg"
+      image = params[:life][:image]
+      File.binwrite("public/user_images/#{@life.image}", image.read)
+    end
     if @life.update(life_params)
       redirect_to life_path
       flash[:notice] = "update!"
