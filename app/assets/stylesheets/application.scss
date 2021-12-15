@@ -2,4 +2,20 @@
 
 a, a:visited, a:focus, a:hover {
     text-decoration: none;
+    transition: all .1s ease-out;
+}
+
+a:not(.site-title):hover {
+    opacity: 0.5;
+}
+
+.index-column {
+    columns: 2;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    object-fit:cover;
+	border-radius:50%;
 }
