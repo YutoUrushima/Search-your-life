@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+p {
+    margin-bottom: 0;
+}
+
 a, a:visited, a:focus, a:hover {
     text-decoration: none;
     transition: all .1s ease-out;
@@ -18,4 +22,11 @@ a:not(.site-title):hover {
     height: 100px;
     object-fit:cover;
 	border-radius:50%;
+}
+
+.flash-message {
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 3px !important;
 }

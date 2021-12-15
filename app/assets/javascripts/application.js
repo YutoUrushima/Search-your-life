@@ -17,3 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function(){
+  setTimeout("$('.flash-message').fadeOut('slow')", 2000);
+});
