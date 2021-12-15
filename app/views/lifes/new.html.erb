@@ -1,17 +1,17 @@
 <div>
-    <div class="col-md-4 offset-md-4">
-        <h2 class="text-center">New life</h2>
+    <h2 class="mb-5 text-center">新規登録</h2>
+    <div class="w-50 mx-auto">
         <%= form_with model: @life, :url => {:action => :create }, local: true do |f| %>
             <div class="form-group">
-                <label>Email</label>
+                <label>メールアドレス</label>
                 <%= f.text_field :mail, class: "form-control" %>
             </div>
             <div class="form-group">
-                <label>password</label>
+                <label>パスワード</label>
                 <%= f.password_field :password, class: "form-control" %>
             </div>
             <div class="text-center">
-                <%= f.submit "Save", class: "btn btn-primary" %>
+                <%= f.submit "登録", class: "btn btn-primary" %>
             </div>
         <% end %>
     </div>
