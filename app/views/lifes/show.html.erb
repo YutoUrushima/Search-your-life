@@ -1,5 +1,9 @@
 <div>
-    <div class="my-3 font-weight-bold"><%= "id: #{@life.id}の個別ページ" %></div>
+    <div class="my-3 font-weight-bold">
+        <%= "id: #{@life.id}の個別ページ" %>
+    </div>
+    
+    <!--case1-->
     <!--現在ログインしているユーザーと訪問している詳細ページのidを比較して、同一ユーザーだった場合 && 人生登録してない場合は人生登録のフォームを表示-->
     <% if @life.id == @current_user && @life.name == nil %>
         <%= form_with model: @life, :url => {:action => :update }, local: true do |f| %>
@@ -31,6 +35,8 @@
                 <%= f.submit "Save", class: "btn btn-primary" %>
             </div>
         <% end %>
+        
+    <!--case2-->
     <!--その他で編集画面を出す必要がない時は普通に表示させる-->
     <% elsif @life.id == @current_user && @life.name != nil %>
         <div class="d-flex w-100 align-items-center">
@@ -128,6 +134,8 @@
                 <%= f.submit "Post!", class: "btn btn-primary" %>
             </div>
         <% end %>
+        
+    <!--case3-->
     <!--その他で編集画面を出す必要がない時は普通に表示させる-->
     <% else %>
         <div class="d-flex w-100 align-items-center">
