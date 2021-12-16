@@ -2,7 +2,6 @@
     <p class="my-3 font-weight-bold">
         <%= "id: #{@life.id}の個別ページ" %>
     </p>
-    
     <!--case1-->
     <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー && 基本情報が未登録の場合-->
     <% if @life.id == @current_user && @life.name == nil %>
