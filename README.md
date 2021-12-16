@@ -11,6 +11,8 @@
 
 You can search for examples of your ideal life.
 
+<img width="1440" alt="スクリーンショット 2021-12-16 16 44 41" src="https://user-images.githubusercontent.com/56684832/146329554-a3553cef-82e3-417a-bf00-340079be0ef6.png">
+
 # Features
 
 The SNS that searches for life is the first in the world. 
