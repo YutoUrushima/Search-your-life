@@ -1,22 +1,17 @@
 <!--名前、生年月日、自己紹介の基本情報の出力-->
-<div class="d-flex w-100 align-items-center">
-    <div class="flex-fill">
-        <img src="/user_images/<%= @life.id %>.jpg">
+<div class="d-flex w-100 align-items-start">
+    <div class="mr-4">
+        <img class="profile-image-detail" src="<%= @life.image != nil ? "/user_images/#{@life.id}.jpg" : "/user_images/default.jpg" %>">
     </div>
-    <div class="flex-fill">
+    <div>
         <h2>
             <%= @life.name %>
         </h2>
-        <div class="d-flex">
-            <p>
-                <%= @life.year %>年
-            </p>
-             <p>
-                <%= @life.month %>月
-            </p>
-             <p>
-                <%= @life.date %>日
-            </p>
+        <div class="d-flex mb-2">
+            <span><%= @life.year %>年</span>
+            <span><%= @life.month %>月</span>
+            <span><%= @life.date %>日</span>
+            <span>生まれ</span>
         </div>
         <p>
             <%= @life.introduce %>

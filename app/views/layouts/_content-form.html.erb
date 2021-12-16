@@ -1,4 +1,5 @@
 <!--人生イベントの登録&編集用フォーム-->
+<h3>Addition</h3>
 <%= form_with model: [@life, @content], local: true do |f| %>
     <%= f.hidden_field :life_id, { value: @life.id } %>
     <div class="form-group">
@@ -18,6 +19,6 @@
         <%= f.text_area :event, class: "form-control" %>
     </div>
     <div class="text-center">
-        <%= f.submit "Post!", class: "btn btn-primary" %>
+        <%= f.submit "登録する", class: "btn btn-primary btn-wide" %>
     </div>
 <% end %>

@@ -24,9 +24,27 @@ a:not(.site-title):hover {
 	border-radius:50%;
 }
 
+.profile-image-detail {
+    width: 200px;
+    height: 200px;
+    object-fit:cover;
+	border-radius:50%;
+}
+
 .flash-message {
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
     border-width: 3px !important;
+}
+
+.btn-wide {
+    width: 100%;
+}
+
+.adjust-intro {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }

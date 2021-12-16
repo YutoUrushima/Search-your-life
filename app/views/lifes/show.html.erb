@@ -4,32 +4,31 @@
     </p>
     
     <!--case1-->
-    <!--ログイン中のユーザーと現在訪問している詳細ページのユーザーのidを比較して、同一ユーザーだった場合 && 人生登録してない場合は人生登録のフォームを表示-->
+    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー && 基本情報が未登録の場合-->
     <% if @life.id == @current_user && @life.name == nil %>
         <%= render "basic-form" %>
     <!--case2-->
-    <!--その他で編集画面を出す必要がない時は普通に表示させる-->
+    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー && 基本情報が登録済の場合-->
     <% elsif @life.id == @current_user && @life.name != nil %>
         <%= render "basic-infomation" %>
-        <!--現在ログインしているユーザーと訪問している詳細ページのidを比較-->
-        <% if @life.id == @current_user %>
-            <%= link_to "edit", edit_life_path, class: "btn btn-primary" %>
-        <% end %>
+        <div class="mt-3 w-100">
+            <%= link_to "編集する", edit_life_path, class: "btn btn-primary btn-wide" %>
+        </div>
+        <div class="mt-5">
+            <%= render "content-show" %>
+        </div>
+        <div class="mt-5">
+            <%= render "layouts/content-form" %>
+        </div>
+    <!--case3-->
+    <!--ログイン中のユーザーと詳細ページのユーザーが違うユーザー-->
+    <% else %>
+        <div>
+            <%= render "basic-infomation" %>
+        </div>
         <!--イベント部分-->
         <div>
             <%= render "content-show" %>
-        </div>
-        <!--イベント部分 ここまで-->
-        <%= render "layouts/content-form" %>
-    <!--case3-->
-    <!--その他で編集画面を出す必要がない時は普通に表示させる-->
-    <% else %>
-        <%= render "basic-infomation" %>
-        <!--イベント部分-->
-        <div class="d-flex w-100 align-items-center">
-            <div>
-                <%= render "content-show" %>
-            </div>
         </div>
     <% end %>
 </div>
