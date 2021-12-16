@@ -3,24 +3,19 @@
 "Search your life" is a SaaS To find an example of your life.
 
 ## function
-- Addition / deletion of birthdays, list function
-- Push notification function
+
+- Searching for your ideal life example
+- Registering your life
 
 # DEMO
 
-This LINE BOT will remind you of your friend's birthday.
-
-![20210208_222823-min](https://user-images.githubusercontent.com/56684832/129435543-67d1e23c-57b5-4be9-a3ab-7a4896f045e6.gif)
+You can search for examples of your ideal life.
 
 # Features
 
-Add LINE BOT to your LINE.
+The SNS that searches for life is the first in the world. 
 
-Just add the name and birthday of the person you want to add in "誕生日の追加" and it will remind you of your birthday.
-
-It also displays a list of birthdays added in "誕生日の一覧".
-
-You can delete the birthday added in "誕生日の削除".
+It specifically describes what happened when the person was and how he overcame it.
 
 # Requirement
 
