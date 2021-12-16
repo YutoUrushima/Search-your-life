@@ -1,0 +1,48 @@
+<!--人生登録イベントの表示&編集-->
+<h3>Events</h3>
+<table class="table table-striped">
+    <% if @life.contents.any? %>
+        <thead class="thead-light">
+            <tr>
+                <td>Year</td>
+                <td>Month</td>
+                <td>Date</td>
+                <td>Event</td>
+                <!--現在ログインしているユーザーと訪問している詳細ページのidを比較-->
+                <% if @life.id == @current_user %>
+                    <td></td>
+                    <td></td>
+                <% end %>
+            </tr>
+        </thead>
+        <tbody>
+            <% @life.contents.each do |content| %>
+            <tr>
+                <td>
+                    <%= content.year %>
+                </td>
+                <td>
+                    <%= content.month %>
+                </td>
+                <td>
+                    <%= content.date %>
+                </td>
+                <td>
+                    <%= content.event %>
+                </td>
+                <!--現在ログインしているユーザーと訪問している詳細ページのidを比較-->
+                <% if @life.id == @current_user %>
+                    <td>
+                        <%= link_to "Edit", edit_life_content_path(@life, content), class: "btn btn-primary" %>
+                    </td>
+                    <td>
+                        <%= link_to "Delete", life_content_path(@life, content), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+                    </td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    <% else %>
+        <p>No Events</p>
+    <% end %>
+</table>
