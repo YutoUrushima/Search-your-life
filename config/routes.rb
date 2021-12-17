@@ -9,7 +9,7 @@ get "/login" => "lifes#login_form"
 post "/login" => "lifes#login"
 post "/logout" => "lifes#logout"
 
-root "lifes#index"
+root 'lifes#index'
 resources :lifes do
   resources :contents
 end
