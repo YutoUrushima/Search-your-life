@@ -98,6 +98,7 @@ GEM
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
+    pg (0.18.4)
     popper_js (1.16.0)
     puma (3.12.6)
     racc (1.6.0)
@@ -146,6 +147,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.15.0)
       parser (>= 3.0.1.1)
+    rubocop-rails (2.12.4)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -201,9 +206,11 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3.1)
   listen (~> 3.0.5)
+  pg (~> 0.18.4)
   puma (~> 3.0)
   rails (~> 5.2.4, >= 5.2.4.2)
   rubocop
+  rubocop-rails
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
