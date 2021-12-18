@@ -1,7 +1,8 @@
 class ContentsController < ApplicationController
+  before_action :ensure_user
+  before_action :set_user, only:[:edit, :update, :destroy]
   
   def create
-    @life = Life.find(params[:life_id])
     @content = Content.new
     if @content.update(content_params)
       redirect_to life_path(@life)
@@ -13,13 +14,9 @@ class ContentsController < ApplicationController
   end
   
   def edit
-    @life = Life.find(params[:life_id])
-    @content = @life.contents.find(params[:id])
   end
   
   def update
-    @life = Life.find(params[:life_id])
-    @content = @life.contents.find(params[:id])
     if @content.update(content_params)
       redirect_to life_path(@life)
       flash[:notice] = "Success!"
@@ -30,14 +27,24 @@ class ContentsController < ApplicationController
   end
   
   def destroy
-    @life = Life.find(params[:life_id])
-    @content = @life.contents.find(params[:id])
     @content.destroy
     redirect_to life_path(@life)
     flash[:notice] = "Deleted!"
   end
   
   private
+    def set_user
+      @content = @life.contents.find(params[:id])
+    end
+    
+    def ensure_user
+      @life = Life.find(params[:life_id])
+      if @life.id != @current_user
+        flash[:alert] = 'ログインしてください'
+        redirect_to login_path
+      end
+    end
+    
     def content_params
       params.require(:content).permit(:year, :month, :date, :event, :life_id)
     end

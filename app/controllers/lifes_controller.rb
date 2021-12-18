@@ -1,4 +1,5 @@
 class LifesController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
   
   def login_form
   end
@@ -28,7 +29,6 @@ class LifesController < ApplicationController
   end
 
   def show
-    @life = Life.find(params[:id])
     @content = Content.new
   end
 
@@ -49,11 +49,13 @@ class LifesController < ApplicationController
   end
 
   def edit
-    @life = Life.find(params[:id])
+    if @life.id != @current_user
+      flash[:alert] = 'ログインしてください'
+      redirect_to login_path
+    end
   end
   
   def update
-    @life = Life.find(params[:id])
     if params[:life][:image]
       @life.image = "#{@life.id}.jpg"
       image = params[:life][:image]
@@ -69,6 +71,10 @@ class LifesController < ApplicationController
   end
   
   private
+    def set_user
+      @life = Life.find(params[:id])
+    end
+    
     def user_params
       params.require(:life).permit(:mail, :password)
     end
@@ -76,5 +82,4 @@ class LifesController < ApplicationController
     def life_params
       params.require(:life).permit(:name, :year, :month, :date, :introduce, :image)
     end
-  
 end
