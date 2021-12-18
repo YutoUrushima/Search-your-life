@@ -7,11 +7,15 @@
         <h2>
             <%= @life.name %>
         </h2>
-        <div class="d-flex mb-2">
+        <div class="d-inline-block mb-2 border-bottom border-dark">
             <span><%= @life.year %>年</span>
             <span><%= @life.month %>月</span>
             <span><%= @life.date %>日</span>
             <span>生まれ</span>
+            <!--TODO：2000歳を超える問題-->
+            <% if @the_age < 200 %>
+                <span>（現在<%= @the_age %>歳）</span>
+            <% end %>
         </div>
         <p>
             <%= @life.introduce %>

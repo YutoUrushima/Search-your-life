@@ -1,4 +1,5 @@
 class LifesController < ApplicationController
+  before_action :the_time, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
   
   def login_form
@@ -30,6 +31,10 @@ class LifesController < ApplicationController
 
   def show
     @content = Content.new
+    # 誕生日のyyyymmdd
+    @the_birthday = (@life.year.to_s + @life.month.to_s + @life.date.to_s).to_i
+    # 現在の年齢
+    @the_age = ((@fomatted_time.to_i - @the_birthday) / 10000).floor
   end
 
   def new
