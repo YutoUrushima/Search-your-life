@@ -1,7 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <head>
     <title>Search your life</title>
+    <meta name="description" content="'Search your life' is a SaaS To find an example of your life." />
+    <!--<link rel="icon" href="/favicon.ico" />-->
+    <!--共通、facebook-->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Search your life"/>
+    <meta property="og:description" content="'Search your life' is a SaaS To find an example of your life."/>
+    <meta property="og:url" content="https://search-your-life.herokuapp.com/"/>
+    <meta property="og:site_name" content="Search your life"/>
+    <!--meta twitter-->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="Search your life"/>
+    <meta name="twitter:title" content="Search your life"/>
+    <meta name="twitter:description" content="'Search your life' is a SaaS To find an example of your life."/>
+    <meta name="twitter:image" content="/ogp.png"/>
+    <meta name="twitter:url" content="https://search-your-life.herokuapp.com/"/>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
