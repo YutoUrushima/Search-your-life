@@ -45,6 +45,7 @@ class LifesController < ApplicationController
     @life = Life.new(user_params)
     if @life.save
       session[:current_user] = @life.id
+      UserMailer.with(life: @life).welcome_email.deliver_later
       flash[:notice] = "created!"
       redirect_to root_path
     else
