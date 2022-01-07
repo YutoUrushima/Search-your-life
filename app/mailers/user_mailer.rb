@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: ENV['MAIL_ADDRESS']
+    default from: 'Search your life'
     
     def welcome_email
         @life = params[:life]
