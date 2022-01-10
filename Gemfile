@@ -48,6 +48,11 @@ group :development do
   gem 'rubocop-rails', require: false
 end
 
+group :test do
+  gem 'minitest',                 '5.11.3'
+  gem 'minitest-reporters',       '1.3.8'
+end
+
 group :production do
   gem 'pg', '~> 0.18.4'
 end

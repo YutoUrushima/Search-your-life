@@ -2,22 +2,22 @@ require 'test_helper'
 
 class LifesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get lifes_index_url
+    get root_path
     assert_response :success
   end
 
   test "should get show" do
-    get lifes_show_url
+    get life_path
     assert_response :success
   end
 
   test "should get new" do
-    get lifes_new_url
+    get new_life_path
     assert_response :success
   end
 
   test "should get edit" do
-    get lifes_edit_url
+    get edit_life_path
     assert_response :success
   end
 
