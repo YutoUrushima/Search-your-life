@@ -7,5 +7,5 @@ class Life < ApplicationRecord
     # validates :introduce, {presence: true}
     # validates :image, {presence: true}
     validates :mail, {presence: true}
-    validates :password, {presence: true}
+    # validates :password_digest, {presence: true}
 end
