@@ -8,4 +8,5 @@ class Life < ApplicationRecord
     # validates :image, {presence: true}
     validates :mail, {presence: true}
     # validates :password_digest, {presence: true}
+    has_secure_password
 end
