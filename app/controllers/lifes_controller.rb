@@ -82,7 +82,7 @@ class LifesController < ApplicationController
     end
     
     def user_params
-      params.require(:life).permit(:mail, :password)
+      params.require(:life).permit(:mail, :password, :password_confirmation)
     end
     
     def life_params
