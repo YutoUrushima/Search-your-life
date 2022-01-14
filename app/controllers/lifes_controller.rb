@@ -9,7 +9,7 @@ class LifesController < ApplicationController
     @mail = params[:mail]
     @password = params[:password]
     @user = Life.find_by(mail: params[:mail])
-    if @user &&  @user.password == @password
+    if @user && @user.authenticate(params[:password])
       session[:current_user] = @user.id
       flash[:notice] = "Success!"
       redirect_to root_path
