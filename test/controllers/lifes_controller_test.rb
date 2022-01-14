@@ -6,19 +6,13 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get life_path
-    assert_response :success
-  end
-
   test "should get new" do
     get new_life_path
     assert_response :success
   end
-
-  test "should get edit" do
-    get edit_life_path
+  
+  test "should get login" do
+    get login_path
     assert_response :success
   end
-
 end

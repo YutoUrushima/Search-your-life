@@ -21,5 +21,8 @@ module Environment
       password:             ENV['PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true }
+      
+    # https://qiita.com/hiruhiru/items/b17d11ad57610583171e
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end

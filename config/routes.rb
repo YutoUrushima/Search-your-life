@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 #   get 'lifes/new'
 #   get 'lifes/edit'
 
-get "/login" => "lifes#login_form"
-post "/login" => "lifes#login"
-post "/logout" => "lifes#logout"
+get "/login", to: "lifes#login_form"
+post "/login", to: "lifes#login"
+post "/logout", to: "lifes#logout"
 
 root 'lifes#index'
 resources :lifes do
