@@ -1,4 +1,5 @@
 class LifesController < ApplicationController
+  include LifesHelper
   before_action :the_time, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
   
@@ -8,9 +9,9 @@ class LifesController < ApplicationController
   def login
     @mail = params[:mail]
     @password = params[:password]
-    @user = Life.find_by(mail: params[:mail])
-    if @user && @user.authenticate(params[:password])
-      session[:current_user] = @user.id
+    @life = Life.find_by(mail: params[:mail])
+    if @life && @life.authenticate(params[:password])
+      log_in(@life)
       flash[:notice] = "Success!"
       redirect_to root_path
     else
@@ -44,7 +45,7 @@ class LifesController < ApplicationController
   def create
     @life = Life.new(user_params)
     if @life.save
-      session[:current_user] = @life.id
+      log_in(@life)
       UserMailer.with(life: @life).welcome_email.deliver_later
       flash[:notice] = "created!"
       redirect_to root_path
