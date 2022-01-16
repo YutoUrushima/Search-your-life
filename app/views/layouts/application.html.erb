@@ -4,13 +4,11 @@
     <title><%= yield(:title) %> | Search your life</title>
     <meta name="description" content="'Search your life' is a SaaS To find an example of your life." />
     <!--<link rel="icon" href="/favicon.ico" />-->
-    <!--共通、facebook-->
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Search your life"/>
     <meta property="og:description" content="'Search your life' is a SaaS To find an example of your life."/>
     <meta property="og:url" content="https://search-your-life.herokuapp.com/"/>
     <meta property="og:site_name" content="Search your life"/>
-    <!--meta twitter-->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="Search your life"/>
     <meta name="twitter:title" content="Search your life"/>
@@ -18,46 +16,16 @@
     <meta name="twitter:image" content="/ogp.png"/>
     <meta name="twitter:url" content="https://search-your-life.herokuapp.com/"/>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
   <body>
-    
-    <!--flash部分-->
-    <% flash.each do |message_type, message| %>
-      <div class="text-primary p-2 position-fixed bg-white rounded border border-info flash-message">
-        <p>
-          <%= message %>
-        </p>
-      </div>
-    <% end %>
-    <!--flash部分-->
-    
-    <div class="bg-primary d-flex justify-content-between align-items-center">
-      <h2 class="p-2">
-        <%= link_to "Search your life", root_path, class: "text-white text-decoration-none site-title" %>
-      </h2>
-      <div class="pr-5 d-flex align-items-center">
-        <% if @current_user %>
-            <div>
-              <%= link_to "マイページ", "/lifes/#{@current_user}", class: "text-white" %>
-            </div>
-            <div class="ml-2">
-              <%= link_to "ログアウト", logout_path, class: "text-white", method: :post %>
-            </div>
-        <% else %>
-            <% if request.path_info != "/login" %>
-              <p class="mb-0">
-                <%= link_to "ログイン", login_path, class: "text-white" %>
-              </p>
-            <% end %>
-            <p class="ml-4 mb-0">
-              <%= link_to "新規登録", new_life_path, class: "text-white" %>
-            </p>
-        <% end %>
-      </div>
-    </div>
+    <%= render 'layouts/flash' %>
+    <%= render 'layouts/header' %>
     <div class="container mt-5 pb-5">
       <%= yield %>
     </div>
