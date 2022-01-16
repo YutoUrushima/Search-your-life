@@ -4,6 +4,7 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
   
   def setup
     @common_title = "Search your life"
+    @life = lives(:yuto)
   end
   
   test "should get index" do
@@ -22,5 +23,11 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
     get login_path
     assert_response :success
     assert_select "title", "Login | #{@common_title}"
+  end
+  
+  test "should get show" do
+    get life_path(@life)
+    assert_response :success
+    assert_select "title", "Show | #{@common_title}"
   end
 end
