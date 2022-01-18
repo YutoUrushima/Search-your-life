@@ -6,9 +6,9 @@ class LifesController < ApplicationController
   end
   
   def login
-    @mail = params[:mail]
+    @email = params[:email]
     @password = params[:password]
-    @user = Life.find_by(mail: params[:mail])
+    @user = Life.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:current_user] = @user.id
       flash[:notice] = "Success!"
@@ -82,7 +82,7 @@ class LifesController < ApplicationController
     end
     
     def user_params
-      params.require(:life).permit(:mail, :password, :password_confirmation)
+      params.require(:life).permit(:email, :password, :password_confirmation)
     end
     
     def life_params
