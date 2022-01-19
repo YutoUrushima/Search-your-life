@@ -47,4 +47,16 @@ class LifeTest < ActiveSupport::TestCase
     @life.save
     assert_not duplicate_life.valid?
   end
+  
+  # パスワードが空白でないかの検証
+  test "password should be present (nonblank)" do
+    @life.password = @life.password_confirmation = " " * 6
+    assert_not @life.valid?
+  end
+  
+  # パスワードは6文字以上でないといけない
+  test "password should have a minimum length" do
+    @life.password = @life.password_confirmation = "a" * 5
+    assert_not @life.valid?
+  end
 end
