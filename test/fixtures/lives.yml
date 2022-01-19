@@ -2,5 +2,5 @@
 
 yuto:
   name: "Yuto Urushima"
-  mail: "example@example.com"
+  email: "example@example.com"
   password_digest: <%= Life.digest("password") %>
