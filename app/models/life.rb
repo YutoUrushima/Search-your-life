@@ -1,13 +1,6 @@
 class Life < ApplicationRecord
     has_many :contents, dependent: :destroy
-    # validates :name, {presence: true}
-    # validates :year, {presence: true}
-    # validates :month, {presence: true}
-    # validates :date, {presence: true}
-    # validates :introduce, {presence: true}
-    # validates :image, {presence: true}
-    validates :email, {presence: true}
-    # validates :password_digest, {presence: true}
+    validates :email, presence: true, length: {maximum: 255}
     has_secure_password
     
     # 渡されたパスワード（文字列）のハッシュ値を返す
