@@ -71,7 +71,7 @@ class LifesController < ApplicationController
       redirect_to life_path
       flash[:notice] = "update!"
     else
-      render :show
+      render :edit
       flash[:alert] = "update error!"
     end
   end
