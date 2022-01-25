@@ -15,6 +15,13 @@ class LifeRegistrationTest < ActionDispatch::IntegrationTest
     # ユーザーの基本情報の登録
     get life_path(@life)
     assert_template 'show', partial: 'lifes/_basic-form'
-    # assert_select 'input[name=?]', 'life[name]'
+    # inputタグが無い
+    # https://zariganitosh.hatenablog.jp/entry/20080405/1207455670
+    # assert_select 'form input[name="life[name]"]'
+    # 画像のテスト：https://railstutorial.jp/chapters/user_microposts?version=6.0#sec-exercises_basic_image_upload
+    image = fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+    patch life_path(@life), params: {life: {name: "うる", year: 1996, month: 12, date: 20, introduce: "developer", image: image}}
+    assert_template 'show'
+    assert_not flash.empty?
   end
 end
