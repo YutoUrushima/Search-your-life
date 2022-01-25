@@ -31,7 +31,6 @@ class LifesController < ApplicationController
   end
 
   def show
-    @content = Content.new
     # 誕生日のyyyymmdd
     @the_birthday = (@life.year.to_s + @life.month.to_s + @life.date.to_s).to_i
     # 現在の年齢
@@ -83,7 +82,7 @@ class LifesController < ApplicationController
     end
     
     def user_params
-      params.require(:life).permit(:email, :password, :password_confirmation)
+      params.require(:life).permit(:name, :email, :password, :password_confirmation)
     end
     
     def life_params

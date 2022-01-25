@@ -1,12 +1,8 @@
 <% provide(:title, "Show") %>
 <div>
     <!--case1-->
-    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー && 基本情報が未登録の場合-->
-    <% if @life.id == @current_user && @life.name == nil %>
-        <%= render "basic-form" %>
-    <!--case2-->
-    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー && 基本情報が登録済の場合-->
-    <% elsif @life.id == @current_user && @life.name != nil %>
+    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー -->
+    <% if @life.id == @current_user %>
         <%= render "basic-infomation" %>
         <div class="mt-3 w-100">
             <%= link_to "編集する", edit_life_path, class: "btn btn-primary btn-wide" %>
@@ -17,7 +13,7 @@
         <div class="mt-5">
             <%= render "layouts/content-form" %>
         </div>
-    <!--case3-->
+    <!--case2-->
     <!--ログイン中のユーザーと詳細ページのユーザーが違うユーザー-->
     <% else %>
         <div>

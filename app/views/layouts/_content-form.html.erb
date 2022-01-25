@@ -1,6 +1,7 @@
 <!--人生イベントの登録&編集用フォーム-->
 <h3>Addition</h3>
-<%= form_with model: [@life, @content], local: true do |f| %>
+<!--https://qiita.com/kiddikn/items/6df1770ce6f31533d654-->
+<%= form_with model: [@life, Content.new], local: true do |f| %>
     <%= f.hidden_field :life_id, { value: @life.id } %>
     <div class="form-group">
         <label>Year</label>
