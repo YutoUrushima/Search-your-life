@@ -1,1 +1,1 @@
-Life.create!(name: "うる", year: 1996, month: 12, date: 20, introduce: "Developer", image: "https://twitter.com/developer_japan/status/1444432857342955520/photo/1", email: "exmaple@example.co.jp", password: "123456", password_confirmation: "123456")
+# Life.create!(name: "うる", year: 1996, month: 12, date: 20, introduce: "Developer", image: "https://twitter.com/developer_japan/status/1444432857342955520/photo/1", email: "exmaple@example.co.jp", password: "123456", password_confirmation: "123456")
