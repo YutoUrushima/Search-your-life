@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LifeTest < ActiveSupport::TestCase
   def setup
-    @life = Life.new(email: "life@example.com", password: "password", password_confirmation: "password")
+    @life = Life.new(name: "Yuto Urushima", email: "life@example.com", password: "password", password_confirmation: "password")
   end
   
   # ユーザーの妥当性のテスト

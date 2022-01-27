@@ -9,4 +9,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  # ユーザーの画像を返す
+  def life_image
+    fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
+  end
 end
