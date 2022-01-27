@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      life: ユーザー
+    attributes:
+      life:
+        name: 名前
