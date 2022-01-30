@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include LifesHelper
     include SessionsHelper
     protect_from_forgery with: :exception
     before_action :set_current_user

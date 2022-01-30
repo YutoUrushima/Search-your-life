@@ -1,7 +1,7 @@
 <!--名前、生年月日、自己紹介の基本情報の出力-->
 <div class="d-flex w-100 align-items-start">
     <div class="mr-4">
-        <img class="profile-image-detail" src="<%= @life.image != nil ? "/user_images/#{@life.id}.jpg" : "/user_images/default.jpg" %>">
+        <img class="profile-image-detail" src="<%= profile_image(@life) %>">
     </div>
     <div>
         <h2>
