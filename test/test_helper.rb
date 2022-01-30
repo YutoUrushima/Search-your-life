@@ -18,4 +18,9 @@ class ActiveSupport::TestCase
   def page_common_part
     "Search your life"
   end
+  
+  # テストユーザーがログイン中の場合にtrueを返す
+  def is_logged_in?
+    !session[:current_user].nil?
+  end
 end

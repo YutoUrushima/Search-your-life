@@ -18,10 +18,10 @@ class LifesController < ApplicationController
   end
   
   def create
-    @life = Life.new(user_params)
-    if @life.save
-      log_in(@life)
-      UserMailer.with(life: @life).welcome_email.deliver_later
+    life = Life.new(user_params)
+    if life.save
+      log_in life
+      UserMailer.with(life: life).welcome_email.deliver_later
       flash[:notice] = "created!"
       redirect_to root_path
     else
