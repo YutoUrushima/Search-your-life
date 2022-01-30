@@ -11,7 +11,7 @@
 
 You can search for examples of your ideal life.
 
-<img width="1440" alt="スクリーンショット 2021-12-16 16 44 41" src="https://user-images.githubusercontent.com/56684832/146329554-a3553cef-82e3-417a-bf00-340079be0ef6.png">
+<img width="1280" alt="スクリーンショット 2022-01-30 18 26 20" src="https://user-images.githubusercontent.com/56684832/151694200-0dc28462-17bc-42b0-a9e1-130ac2a66072.png">
 
 # Features
 
