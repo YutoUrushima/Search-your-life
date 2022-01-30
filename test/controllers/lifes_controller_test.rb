@@ -3,31 +3,24 @@ require 'test_helper'
 class LifesControllerTest < ActionDispatch::IntegrationTest
   
   def setup
-    @common_title = "Search your life"
     @life = lives(:yuto)
   end
   
   test "should get index" do
     get root_path
     assert_response :success
-    assert_select "title", "Home | #{@common_title}"
+    assert_select "title", "Home | #{page_common_part}"
   end
 
   test "should get new" do
     get new_life_path
     assert_response :success
-    assert_select "title", "New | #{@common_title}"
-  end
-  
-  test "should get login" do
-    get login_path
-    assert_response :success
-    assert_select "title", "Login | #{@common_title}"
+    assert_select "title", "New | #{page_common_part}"
   end
   
   test "should get show" do
     get life_path(@life)
     assert_response :success
-    assert_select "title", "Show | #{@common_title}"
+    assert_select "title", "Show | #{page_common_part}"
   end
 end

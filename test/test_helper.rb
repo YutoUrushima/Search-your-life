@@ -13,4 +13,9 @@ class ActiveSupport::TestCase
   def life_image
     fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpeg')
   end
+  
+  # ページタイトルの共通部分を返却する
+  def page_common_part
+    "Search your life"
+  end
 end
