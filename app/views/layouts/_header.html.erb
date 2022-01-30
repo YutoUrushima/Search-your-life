@@ -4,22 +4,26 @@
   </h2>
   <nav>
     <ul class="pr-5 mb-0 d-flex align-items-center">
-      <% if @current_user %>
+      <% if logged_in? %>
         <div>
-          <%= link_to "マイページ", "/lifes/#{@current_user}", class: "text-white" %>
+          <%= link_to "マイページ", life_path(@current_user), class: "text-white" %>
         </div>
         <div class="ml-2">
           <%= link_to "ログアウト", logout_path, class: "text-white", method: :post %>
         </div>
       <% else %>
-      <% if request.path_info != "/login" %>
-        <p class="mb-0">
-          <%= link_to "ログイン", login_path, class: "text-white" %>
-        </p>
-      <% end %>
-        <p class="ml-4 mb-0">
-          <%= link_to "新規登録", new_life_path, class: "text-white" %>
-        </p>
+        <!--ログインページではログインのリンクを非表示に-->
+        <% if current_page_path != login_path %>
+          <p class="mb-0">
+            <%= link_to "ログイン", login_path, class: "text-white" %>
+          </p>
+        <% end %>
+        <!--新規登録ページでは新規登録のリンクを非表示に-->
+        <% if current_page_path != new_life_path %>
+          <p class="ml-4 mb-0">
+            <%= link_to "新規登録", new_life_path, class: "text-white" %>
+          </p>
+        <% end %>
       <% end %>
     </ul>
   </nav>

@@ -1,30 +1,6 @@
 class LifesController < ApplicationController
-  include LifesHelper
   before_action :the_time, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
-  
-  def login_form
-  end
-  
-  def login
-    @email = params[:email]
-    @password = params[:password]
-    @life = Life.find_by(email: params[:email])
-    if @life && @life.authenticate(params[:password])
-      log_in(@life)
-      flash[:notice] = "Success!"
-      redirect_to root_path
-    else
-      flash[:alert] = "Error!"
-      render :login_form
-    end
-  end
-  
-  def logout
-    session[:current_user] = nil
-    flash[:notice] = "logout!"
-    redirect_to root_path
-  end
   
   def index
     @lifes = Life.all
