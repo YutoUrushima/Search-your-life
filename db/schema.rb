@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2022_01_19_132903) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
     t.string "password_digest"
+    t.string "email"
     t.index ["email"], name: "index_lives_on_email", unique: true
   end
 
