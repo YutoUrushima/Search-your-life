@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_132903) do
+ActiveRecord::Schema.define(version: 2022_02_05_062550) do
 
   create_table "contents", force: :cascade do |t|
     t.integer "life_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_01_19_132903) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
+    t.string "remember_digest"
     t.index ["email"], name: "index_lives_on_email", unique: true
   end
 

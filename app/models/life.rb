@@ -1,4 +1,5 @@
 class Life < ApplicationRecord
+    attr_accessor :remember_token
     has_many :contents, dependent: :destroy
     before_save {self.email = self.email.downcase}
     # https://railstutorial.jp/chapters/modeling_users?version=6.0#sec-format_validation
@@ -13,5 +14,16 @@ class Life < ApplicationRecord
     def Life.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
+    end
+    
+    # ランダムなトークンを返す
+    def Life.new_token
+        SecureRandom.urlsafe_base64
+    end
+    
+    # 永続セッションのためにユーザーをデータベースに記憶する
+    def remember
+        self.remember_token = Life.new_token
+        update_attribute(:remember_digest, Life.digest(remember_token))
     end
 end
