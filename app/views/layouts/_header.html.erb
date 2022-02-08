@@ -9,7 +9,7 @@
           <%= link_to "マイページ", life_path(@current_user), class: "text-white" %>
         </div>
         <div class="ml-2">
-          <%= link_to "ログアウト", logout_path, class: "text-white", method: :post %>
+          <%= link_to "ログアウト", logout_path, class: "text-white", method: :delete %>
         </div>
       <% else %>
         <!--ログインページではログインのリンクを非表示に-->

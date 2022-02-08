@@ -26,4 +26,14 @@ class Life < ApplicationRecord
         self.remember_token = Life.new_token
         update_attribute(:remember_digest, Life.digest(remember_token))
     end
+    
+    # 渡されたトークンがダイジェストと一致したらtrueを返す
+    def authenticated?(remember_token)
+        BCrypt::password.new(remember_digest).is_password?(remember_token)
+    end
+    
+    # ユーザーのログイン情報を破棄する
+    def forget
+        update_attribute(:remember_digest, nil)
+    end
 end
