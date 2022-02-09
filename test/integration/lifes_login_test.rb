@@ -35,5 +35,10 @@ class LifesLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     follow_redirect!
     assert_not flash.empty?
+    # ２番めのウィンドウでログアウトをクリックするユーザーをシミュレートする
+    # https://railstutorial.jp/chapters/advanced_login?version=6.0#sec-two_subtle_bugs
+    delete logout_path
+    follow_redirect!
+    assert_not flash.empty?
   end
 end

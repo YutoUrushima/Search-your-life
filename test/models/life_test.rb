@@ -59,4 +59,8 @@ class LifeTest < ActiveSupport::TestCase
     @life.password = @life.password_confirmation = "a" * 5
     assert_not @life.valid?
   end
+  
+  test "authenticated? should return false for a life with nil digest" do
+    assert_not @life.authenticated?('')
+  end
 end
