@@ -41,4 +41,18 @@ class LifesLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_not flash.empty?
   end
+  
+  test "login with remembering" do
+    log_in_as(@life, remember_me: '1')
+    assert_not_empty cookies[:remember_token]
+  end
+  
+  test "login without remembering" do
+    # cookiesを保存してログイン(cookiesの初期化)
+    log_in_as(@life, remember_me: '1')
+    delete logout_path
+    # cookiesを削除してログイン
+    log_in_as(@life, remember_me: '0')
+    assert_empty cookies[:remember_token]
+  end
 end

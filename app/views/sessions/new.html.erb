@@ -11,8 +11,12 @@
                 <%= f.label :password, "パスワード" %>
                 <%= f.password_field :password, class: "form-control" %>
             </div>
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+                <%= f.check_box :remember_me %>
+                <span>次回以降、自動でログインする</span>
+            <% end %>
             <div class="text-center">
-                <%= f.submit "ログイン", class: "btn btn-primary" %>
+                <%= f.submit "ログイン", class: "btn btn-primary w-100 mt-2" %>
             </div>
             
             <p class="d-flex justify-content-center mt-2"><%= link_to "アカウントを作成する", new_life_path %></p>
