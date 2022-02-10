@@ -1,5 +1,5 @@
  <!--名前、生年月日、自己紹介、アイコンの設定フォーム-->
- <%= form_with model: @life, :url => {:action => :update }, multipart: true, local: true do |f| %>
+ <%= form_with(model: @life, multipart: true, local: true) do |f| %>
     <%= render 'shared/error_messages' %>
     
     <div class="form-group">

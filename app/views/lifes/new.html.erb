@@ -2,7 +2,7 @@
 <div>
     <h2 class="mb-5 text-center">新規登録</h2>
     <div class="w-50 mx-auto">
-        <%= form_with model: @life, :url => {:action => :create }, local: true do |f| %>
+        <%= form_with(model: @life, url: lifes_path, local: true) do |f| %>
             <div class="form-group">
                 <%= f.label :name, "名前" %>
                 <%= f.text_field :name, class: "form-control" %>

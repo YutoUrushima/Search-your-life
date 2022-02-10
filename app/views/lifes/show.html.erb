@@ -1,27 +1,17 @@
 <% provide(:title, "Show") %>
 <div>
-    <!--case1-->
-    <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー -->
+    <%= render "basic-infomation" %>
     <% if @life.id == current_user.id %>
-        <%= render "basic-infomation" %>
         <div class="mt-3 w-100">
             <%= link_to "編集する", edit_life_path, class: "btn btn-primary btn-wide" %>
         </div>
-        <div class="mt-5">
-            <%= render "content-show" %>
-        </div>
+    <% end %>
+    <div class="mt-5">
+        <%= render "content-show" %>
+    </div>
+    <% if @life.id == current_user.id %>
         <div class="mt-5">
             <%= render "layouts/content-form" %>
-        </div>
-    <!--case2-->
-    <!--ログイン中のユーザーと詳細ページのユーザーが違うユーザー-->
-    <% else %>
-        <div>
-            <%= render "basic-infomation" %>
-        </div>
-        <!--イベント部分-->
-        <div class="mt-5">
-            <%= render "content-show" %>
         </div>
     <% end %>
 </div>
