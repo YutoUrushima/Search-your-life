@@ -2,7 +2,7 @@
 <div>
     <!--case1-->
     <!--ログイン中のユーザーと詳細ページのユーザーが同一ユーザー -->
-    <% if @life.id == @current_user %>
+    <% if @life.id == current_user.id %>
         <%= render "basic-infomation" %>
         <div class="mt-3 w-100">
             <%= link_to "編集する", edit_life_path, class: "btn btn-primary btn-wide" %>

@@ -25,6 +25,11 @@ module SessionsHelper
         end
     end
     
+    # 渡されたユーザーがカレントユーザーであればtrueを返す
+    def current_life?(life)
+        life && life == current_user
+    end
+    
     # ユーザーがログインしていればtrue、その他ならfalseを返す
     def logged_in?
         !current_user.nil?

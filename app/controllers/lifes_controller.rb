@@ -1,6 +1,7 @@
 class LifesController < ApplicationController
   before_action :the_time, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :logged_in_life, only: [:edit, :update] 
   
   def index
     @lifes = Life.all
@@ -31,10 +32,6 @@ class LifesController < ApplicationController
   end
 
   def edit
-    if @life.id != @current_user
-      flash[:alert] = 'ログインしてください'
-      redirect_to login_path
-    end
   end
   
   def update
@@ -63,5 +60,19 @@ class LifesController < ApplicationController
     
     def life_params
       params.require(:life).permit(:name, :year, :month, :date, :introduce, :image)
+    end
+    
+    # 何らかのユーザーがログインしているか確認
+    def logged_in_life
+      unless logged_in?
+        flash[:danger] = "ログインしてください"
+        redirect_to login_url
+      end
+    end
+    
+    # 正しいユーザーかどうか確認
+    def correct_life?
+      @life = Life.find(params[:id])
+      redirect_to(root_url) unless current_life?(@life)
     end
 end
