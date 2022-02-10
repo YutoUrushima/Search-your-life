@@ -2,6 +2,7 @@ class LifesController < ApplicationController
   before_action :the_time, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :logged_in_life, only: [:edit, :update] 
+  before_action :correct_life, only: [:edit, :update]
   
   def index
     @lifes = Life.all
@@ -71,7 +72,7 @@ class LifesController < ApplicationController
     end
     
     # 正しいユーザーかどうか確認
-    def correct_life?
+    def correct_life
       @life = Life.find(params[:id])
       redirect_to(root_url) unless current_life?(@life)
     end
