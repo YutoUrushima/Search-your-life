@@ -17,4 +17,10 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "New | #{page_common_part}"
   end
+  
+  test "should get show" do
+    get life_path(@life)
+    assert_response :success
+    assert_select "title", "Show | #{page_common_part}"
+  end
 end
