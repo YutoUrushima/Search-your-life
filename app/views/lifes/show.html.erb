@@ -1,7 +1,7 @@
 <% provide(:title, "Show") %>
 <div>
     <%= render "basic-infomation" %>
-    <% if current_user && @life.id == current_user.id %>
+    <% if match_correct_life?(@life) %>
         <div class="mt-3 w-100">
             <%= link_to "編集する", edit_life_path, class: "btn btn-primary btn-wide" %>
         </div>
@@ -9,7 +9,7 @@
     <div class="mt-5">
         <%= render "content-show" %>
     </div>
-    <% if current_user && @life.id == current_user.id %>
+    <% if match_correct_life?(@life) %>
         <div class="mt-5">
             <%= render "layouts/content-form" %>
         </div>
