@@ -13,7 +13,7 @@
             <span><%= @life.date %>日</span>
             <span>生まれ</span>
             <!--TODO：2000歳を超える問題-->
-            <% if @the_age && @the_age < 200 %>
+            <% if !@life.year.nil? || !@life.month.nil? || !@life.date.nil? %>
                 <span>（現在<%= @the_age %>歳）</span>
             <% end %>
         </div>
