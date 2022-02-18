@@ -22,7 +22,7 @@ class LifeShowTest < ActionDispatch::IntegrationTest
   end
   
   # 現在のログインユーザーとは別のユーザーのページでは編集ボタンを表示させない
-  test 'not display button with login another life'do   
+  test 'not display button with login another life' do   
     get login_path
     log_in_as(@life, password: 'password')
     assert_redirected_to @life
