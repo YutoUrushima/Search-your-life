@@ -4,6 +4,11 @@ yuto:
   name: "Yuto Urushima"
   email: "example@example.com"
   password_digest: <%= Life.digest("password") %>
+  
+hanako:
+  name: "Hanako Yamada"
+  email: "hanako@example.com"
+  password_digest: <%= Life.digest("password") %>
 
 new_life:
   email: "example2@example.com"

@@ -42,11 +42,11 @@ class LifesController < ApplicationController
       File.binwrite("public/user_images/#{@life.image}", image.read)
     end
     if @life.update(life_params)
-      redirect_to @life
       flash[:notice] = "update!"
+      redirect_to @life
     else
+      flash.now[:alert] = "update error!"
       render :edit
-      flash[:alert] = "update error!"
     end
   end
   
