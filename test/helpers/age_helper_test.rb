@@ -16,7 +16,7 @@ class LifesHelperTest < ActionView::TestCase
             { name: "young_sister", date: "2002/4/5", age: 19 },
             { name: "former", date: "1996/2/19", age: 26 },
             { name: "today", date: "1996/2/20", age: 26 },
-            { name: "former", date: "1996/2/21", age: 25 }
+            { name: "later", date: "1996/2/21", age: 25 }
         ]
         birthdays.each do |birthday|
             @life.year = birthday[:date].split('/')[0]
