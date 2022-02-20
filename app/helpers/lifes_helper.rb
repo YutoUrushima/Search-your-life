@@ -12,21 +12,26 @@ module LifesHelper
     end
     
     # ユーザーの年齢を表示する
-    # https://qiita.com/aqril_1132/items/46e824541e657190ef3e#%E5%B0%8F%E8%A9%B1---%E5%B9%B4%E3%82%92%E3%81%A8%E3%82%8B%E7%9E%AC%E9%96%93
     def display_life_age(life)
         # lifeモデルのyear, month, dateのいずれもnilでない場合に実行
-        if(!life.year.nil? && !life.month.nil? && !life.date.nil? )
+        if !life.year.nil? && !life.month.nil? && !life.date.nil?
             Time.zone = "Asia/Tokyo"
             # 現在時刻のyyyymmdd
             fomatted_time = Time.zone.now.to_formatted_s(:number).slice!(0...8)
-            # 月と日は0paddingで2桁に揃える
-            month = sprintf("%02d", life.month)
-            date = sprintf("%02d", life.date)
-            # 誕生日のyyyymmdd
-            the_birthday = (life.year.to_s + month.to_s + date.to_s).to_i
-            # 現在の年齢
-            the_age = ((fomatted_time.to_i - the_birthday) / 10000).floor
+            # 現在の年/月/日
+            current_year = fomatted_time.slice!(0...4).to_i
+            current_month = fomatted_time.slice!(0...2).to_i
+            current_date = fomatted_time.slice!(0...2).to_i
+            # 今年にthe_age歳になるので、月日によって条件分岐
+            the_age = current_year - life.year
+            if life.month > current_month
+                the_age -= 1
+            elsif life.month == current_month
+                the_age -= 1 if life.date > current_date
+            end
             return the_age
+        else
+            return false
         end
     end
 end
