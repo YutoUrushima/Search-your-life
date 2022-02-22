@@ -8,7 +8,7 @@ class LifesController < ApplicationController
   end
 
   def show
-    @the_age = display_life_age(@life)
+    @the_age = get_life_age(@life)
   end
 
   def new

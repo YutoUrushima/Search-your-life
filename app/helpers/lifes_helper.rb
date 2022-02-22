@@ -11,8 +11,8 @@ module LifesHelper
         current_user && life.id == current_user.id
     end
     
-    # ユーザーの年齢を表示する
-    def display_life_age(life)
+    # ユーザーの年齢を返す
+    def get_life_age(life)
         # lifeモデルのyear, month, dateのいずれもnilでない場合に実行
         if !life.year.nil? && !life.month.nil? && !life.date.nil?
             Time.zone = "Asia/Tokyo"
