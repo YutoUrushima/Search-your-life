@@ -1,7 +1,7 @@
 class LifesController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show]
   before_action :logged_in_life, only: [:edit, :update] 
-  before_action :correct_life, only: [:edit, :update]
+  before_action :correct_life_logged_in, only: [:edit, :update]
   
   def index
     @lifes = Life.all
@@ -23,7 +23,7 @@ class LifesController < ApplicationController
       flash[:notice] = "created!"
       redirect_to root_path
     else
-      flash[:alert] = "creation error!"
+      flash.now[:alert] = "creation error!"
       render :new
     end
   end
@@ -68,7 +68,7 @@ class LifesController < ApplicationController
     end
     
     # 正しいユーザーかどうか確認
-    def correct_life
+    def correct_life_logged_in
       @life = Life.find(params[:id])
       redirect_to(root_url) unless current_life?(@life)
     end
