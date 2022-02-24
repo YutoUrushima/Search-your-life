@@ -43,7 +43,6 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect edit when logged in as wrong life' do
     log_in_as(@another_life)
     get edit_life_path(@life)
-    # assert flash.empty?
     assert_redirected_to root_url
   end
   
@@ -51,7 +50,6 @@ class LifesControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect update when logged in as wrong life' do
     log_in_as(@another_life)
     patch life_path(@life), params: {life: {name: @life.name}}
-    # assert flash.empty?
     assert_redirected_to root_url
   end
 end
