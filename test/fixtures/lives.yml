@@ -13,3 +13,10 @@ hanako:
 new_life:
   email: "example2@example.com"
   password_digest: <%= Life.digest("password") %>
+  
+<% 30.times do |n| %>
+life_<%= n %>:
+  name: <%= "Life #{n}" %>
+  email: <%= "life-#{n}@example.com" %>
+  password_digest: <%= Life.digest("password") %>
+<% end %>
