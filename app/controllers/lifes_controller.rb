@@ -62,6 +62,7 @@ class LifesController < ApplicationController
     # 何らかのユーザーがログインしているか確認
     def logged_in_life
       unless logged_in?
+        store_location # フレンドリーフォワーディングへ向けてURLを記憶
         flash[:danger] = "ログインしてください"
         redirect_to login_url
       end

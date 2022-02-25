@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in life
       params[:session][:remember_me] == '1' ? remember(life) : forget(life)
       flash[:notice] = "Success!"
-      redirect_to life
+      redirect_back_or life
     else
       flash.now[:alert] = "Error!"
       render :new

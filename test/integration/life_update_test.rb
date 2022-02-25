@@ -36,4 +36,16 @@ class LifeUpdateTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_select 'div#error_explanation'
   end
+  
+  test "successful edit with friendly forwarding" do
+    get edit_life_path(@life)
+    log_in_as(@life)
+    assert_redirected_to edit_life_url(@life)
+    name = "new name"
+    patch life_path(@life), params: {life: {name: name, year: 1996, month: 12, date: 20, introduce: "new introduce", image: life_image}}
+    assert_not flash.empty?
+    assert_redirected_to @life
+    @life.reload
+    assert_equal name, @life.name
+  end
 end
