@@ -1,5 +1,8 @@
 <% provide(:title, "Home") %>
-<div class="card-columns index-column">
+
+<%= will_paginate %>
+
+<div class="card-columns index-column my-3">
     <% @lifes.each do |life| %>
         <% if life.name %>
             <%= link_to life_path(life), class: "card" do %>
@@ -19,3 +22,5 @@
         <% end %>
     <% end %>
 </div>
+
+<%= will_paginate %>

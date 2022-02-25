@@ -79,3 +79,12 @@ a:not(.site-title):hover {
         border-color: red;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    & > ul.pagination > li:not(:last-child) {
+        margin-right: 10px;
+    }
+}

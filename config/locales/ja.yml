@@ -5,3 +5,6 @@ ja:
     attributes:
       life:
         name: 名前
+  will_paginate:
+    previous_label: "前へ"
+    next_label: "次へ"

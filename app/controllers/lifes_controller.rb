@@ -4,7 +4,7 @@ class LifesController < ApplicationController
   before_action :correct_life_logged_in, only: [:edit, :update]
   
   def index
-    @lifes = Life.all
+    @lifes = Life.paginate(page: params[:page])
   end
 
   def show
